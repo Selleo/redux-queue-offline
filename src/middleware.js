@@ -20,10 +20,7 @@ export default function middleware (stateName = STATE_NAME, asyncPayloadFields =
       return result
     }
 
-    const shouldQueue = (action.meta || {}).queueIfOffline
-
-    // check if we don't need to queue the action
-    if (isOnline || !shouldQueue) {
+    if (isOnline) {
       return next(action)
     }
 

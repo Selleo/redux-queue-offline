@@ -19,9 +19,6 @@ test('dispatches action when online', (t) => {
     type: 'ACTION_TYPE',
     payload: {
       promise: t.context.promise
-    },
-    meta: {
-      queueIfOffline: true
     }
   })
 
@@ -31,9 +28,6 @@ test('dispatches action when online', (t) => {
     type: 'ACTION_TYPE',
     payload: {
       promise: t.context.promise
-    },
-    meta: {
-      queueIfOffline: true
     }
   })
 })
@@ -44,9 +38,6 @@ test('dispatches QUEUE action and normal action without payload.promise when off
     type: 'ACTION_TYPE',
     payload: {
       promise: t.context.promise
-    },
-    meta: {
-      queueIfOffline: true
     }
   })
 
@@ -68,10 +59,7 @@ test('dispatches QUEUE action and normal action without payload.promise when off
 
   t.same(t.context.next.secondCall.args[0], {
     type: 'ACTION_TYPE',
-    payload: {},
-    meta: {
-      queueIfOffline: true
-    }
+    payload: {}
   })
 })
 
